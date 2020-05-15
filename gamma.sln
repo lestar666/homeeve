@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gamma", "gamma\gamma.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "equaly", "equaly\equaly.vcxproj", "{2D8984CB-FDCB-4490-821F-E93901250525}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gammatest", "gammatest\gammatest.vcxproj", "{B79E804E-19CC-4165-85F0-50B098B3DF98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{2D8984CB-FDCB-4490-821F-E93901250525}.Release|x64.Build.0 = Release|x64
 		{2D8984CB-FDCB-4490-821F-E93901250525}.Release|x86.ActiveCfg = Release|Win32
 		{2D8984CB-FDCB-4490-821F-E93901250525}.Release|x86.Build.0 = Release|Win32
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Debug|x64.ActiveCfg = Debug|x64
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Debug|x64.Build.0 = Debug|x64
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Debug|x86.ActiveCfg = Debug|Win32
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Debug|x86.Build.0 = Debug|Win32
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Release|x64.ActiveCfg = Release|x64
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Release|x64.Build.0 = Release|x64
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Release|x86.ActiveCfg = Release|Win32
+		{B79E804E-19CC-4165-85F0-50B098B3DF98}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
