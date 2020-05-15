@@ -1,20 +1,59 @@
-﻿// gamma.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿#include <iostream>  
+#include <opencv2/opencv.hpp>  
 
-#include <iostream>
+using namespace cv;
+using namespace std;
 
+int gammaF(cv::Mat srcMat, cv::Mat & dstMat, float gamma)
+{
+
+	//处理单通道图像
+	if (srcMat.channels() != 1)return -1;
+
+	//建立查询表
+	unsigned char LUT[256];
+	for (int i = 0; i < 256; i++)
+	{
+
+		LUT[i] = saturate_cast<uchar>(pow((float)(i / 255.0), gamma) * 255.0f);
+		float inten = (float)i;
+	}
+
+	srcMat.copyTo(dstMat);
+
+	MatIterator_<uchar> it, end;
+	for (it = dstMat.begin<uchar>(), end = dstMat.end<uchar>(); it != end; it++) {
+		*it = LUT[(*it)];
+	}
+
+	return 0;
+}
 int main()
 {
-    std::cout << "Hello World!\n";
+
+	cv::Mat src = imread("face.jpg", 0);
+	cv::Mat dstMat1;
+	cv::Mat dstMat2;
+
+	if (!src.data)
+	{
+		printf("could not load image...\n");
+		return -1;
+	}
+
+	float gamma1 = 0.5;
+	float gamma2 = 2.0;
+
+	gammaF(src, dstMat1, gamma1);
+	gammaF(src, dstMat2, gamma2);
+
+	imshow("src", src);
+	imshow("dst1", dstMat1);
+	imshow("dst2", dstMat2);
+
+	waitKey(0);
+
+	destroyAllWindows();
+
+	return 0;
 }
-
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
